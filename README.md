@@ -1,99 +1,145 @@
 # InternNova
 
-InternNova is a React/Vite internship and career platform with student, staff/admin, internship, certificate, payment, and resume-builder workflows.
+InternNova is an internship and student-management platform designed to manage internship programs, student activities, tasks, resources, certificates, applications, payments, and staff operations from a centralized platform.
+
+The current project includes a public website, student dashboard, staff/admin dashboard, internship management system, certificate workflows, payment integration, and a Resume Builder.
+
+## Features
+
+* **Public Website** — Company information, internship programs, batches, courses, projects, blogs, FAQs, Campus Ambassador program, Hall of Fame, Employer Portal, certificate verification, and legal pages.
+* **Student Dashboard** — Internship overview, assigned tasks, task submission, progress tracking, learning resources, schedules, notifications, profile management, certificates, leaderboard, and Resume Builder.
+* **Staff/Admin Dashboard** — Student and staff management, tasks, resources, task evaluation, premium applications, certificates, newsletter management, announcements, teams, and other administrative operations.
+* **Internship Management** — Internship applications, student enrollment, batches, premium applications, Campus Ambassador applications, task assignment, submissions, evaluations, and progress tracking.
+* **Certificate System** — Certificate management, verification, certificate orders, and payment workflows.
+* **Payment Integration** — Razorpay integration for supported course, certificate, premium, and Resume Builder payments.
+* **Resume Builder** — Resume creation and editing, resume data storage, AI-assisted generation, ATS-related scoring, paid plans, and secure resume access.
 
 ## Tech Stack
 
-- React 19
-- Vite
-- React Router
-- Supabase
-- Vercel Serverless Functions
-- Razorpay
-- Google Gemini
-- Nodemailer
-- Playwright
+**Frontend:** React, Vite, React Router
+**Backend:** Vercel Serverless Functions
+**Database & Authentication:** Supabase
+**Payments:** Razorpay
+**AI:** Google Gemini
+**Email:** Nodemailer, EmailJS
+**Testing:** Playwright
+**Linting:** Oxlint
+**Deployment:** Vercel
 
-## Setup
+## Project Structure
+
+```text
+InternNova/
+├── api/                    # Vercel API routes
+├── public/                 # Public assets
+├── server-routes/          # Server-side application logic
+│   ├── _admin/             # Admin operations
+│   ├── payment/            # Payment APIs
+│   └── resume/             # Resume APIs
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── lib/                # Shared utilities and Supabase
+│   ├── pages/              # Website, dashboard and admin pages
+│   └── styles/             # Global styles
+├── supabase_migrations/    # Database migrations
+├── tests/                  # Playwright tests
+├── .env.example
+├── package.json
+├── supabase_schema.sql
+├── vercel.json
+└── vite.config.js
+```
+
+## Getting Started
+
+### Requirements
+
+* Node.js 20+
+* npm
+* Supabase project
+* Razorpay account for payment features
+* Vercel account for deployment
+
+### Installation
 
 ```bash
+git clone https://github.com/arnavas25/InternNova.git
+cd InternNova
 npm install
-cp .env.example .env.local
+```
+
+Create a `.env.local` file using `.env.example` and add the required environment variables.
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Configure the required environment variables before using Supabase, payments, email, or AI features.
-
-## Build
+Build the project:
 
 ```bash
 npm run build
 ```
 
-## Lint
+Run linting:
 
 ```bash
 npm run lint
 ```
 
-## E2E Tests
-
-E2E tests intentionally **do not contain real credentials** and default to a local development URL.
-
-Set dedicated staging/test credentials before running:
+Run end-to-end tests:
 
 ```bash
-TEST_BASE_URL=
-TEST_STAFF_ID=
-TEST_STAFF_PASS=
-TEST_STUDENT_EMAIL=
-TEST_STUDENT_PASS=
+npm run test:e2e
 ```
 
-Never use production user credentials for automated tests.
+## Environment Variables
 
-## Security
+Environment variables are documented in `.env.example`.
 
-- Never commit `.env` files or secrets.
-- Never expose `SUPABASE_SERVICE_ROLE_KEY` to the browser.
-- Server-side Supabase access requires `SUPABASE_SERVICE_ROLE_KEY`.
-- Razorpay payment verification is always signature-checked; there is no production test bypass.
-- Resume records use a private access token in addition to the public resume ID.
-- Admin credential export of plaintext passwords has been removed.
-- Debug/database scripts containing production credentials have been removed.
-- Use dedicated staging/test accounts for Playwright.
-- Configure Supabase RLS for browser-side database access.
+Private credentials such as Supabase service-role keys, Razorpay secret keys, email passwords, and AI API keys must never be committed to the repository.
 
-## Resume Access Token Migration
+## Supabase
 
-For an existing production database, run:
+Supabase is used for authentication and application data.
+
+The database schema is available in `supabase_schema.sql`, while migrations are stored in `supabase_migrations/`.
+
+For an existing database, apply:
 
 ```text
 supabase_migrations/20260812_add_resume_access_token.sql
 ```
 
-New resume purchases automatically receive a cryptographically random access token. The token is stored only in the user's browser and is required for resume read/write/AI-generation API calls.
+before using the current Resume Builder workflow.
 
-## Project Structure
+## Deployment
 
-```text
-api/                 Vercel API route adapters
-server-routes/       Server-side business logic
-src/components/      Shared UI components
-src/pages/           Application pages
-src/lib/             Shared frontend utilities
-public/              Static assets
-tests/               Playwright E2E tests
-supabase_schema.sql  Database schema
-supabase_migrations/ Database migrations
-```
+The project is configured for Vercel. Configure the required environment variables in the Vercel project settings and deploy the repository.
 
-## Production Checklist
+## Security
 
-- [ ] Configure all production environment variables in Vercel.
-- [ ] Run the resume access-token migration on an existing database.
-- [ ] Verify Supabase RLS policies.
-- [ ] Use Razorpay production credentials only in server environment variables.
-- [ ] Use dedicated staging credentials for E2E tests.
-- [ ] Confirm no secrets are present in Git history.
-- [ ] Run `npm run build` and `npm run lint`.
+InternNova handles student data, staff operations, authentication, payments, certificates, and resume information.
+
+The repository is configured to keep private credentials outside the source code and uses server-side payment verification and protected resume access.
+
+For production deployments:
+
+* Never commit `.env` or `.env.local`.
+* Never expose `SUPABASE_SERVICE_ROLE_KEY` to the client.
+* Keep payment secrets server-side.
+* Protect admin APIs with authentication and authorization.
+* Use dedicated accounts for automated testing.
+* Keep staging and production environments separate.
+* Configure Supabase Row Level Security (RLS) correctly.
+
+## Current Status
+
+InternNova is an actively developed platform focused on internship management, student dashboards, staff operations, certificates, payments, and career-related tools.
+
+The project will continue to evolve as new features and improvements are added.
+
+---
+
+**InternNova — Internship, Training & Career Platform**
