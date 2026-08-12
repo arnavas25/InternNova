@@ -1,0 +1,97 @@
+.certificate-page {
+  font-family: 'Inter', sans-serif;
+  background: #e0e4ec;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-container {
+  width: 297mm;
+  height: 210mm;
+  background-color: white;
+  position: relative;
+  padding: 50px 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: #281259;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Inset border leaving space on the edges */
+.certificate-container::before {
+  content: '';
+  position: absolute;
+  top: 18px; left: 18px; right: 18px; bottom: 18px;
+  z-index: 0;
+  border-top: 2px solid #00AEEF;
+  border-left: 2px solid #00AEEF;
+  border-right: 2px solid #E91E63;
+  border-bottom: 2px solid #E91E63;
+  pointer-events: none;
+}
+
+.cert-header, .cert-body, .cert-footer-content, .cert-bottom-bar {
+  position: relative; z-index: 1;
+}
+
+.cert-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.cert-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.cert-logo img { height: 95px; object-fit: contain; }
+.cert-issue-date { font-size: 15px; font-weight: 700; color: #222; margin-left: 5px; }
+.cert-number { font-size: 16px; font-weight: 500; }
+
+.cert-body { text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; margin-top: -20px; }
+.cert-title { font-size: 48px; font-weight: 500; color: #281259; letter-spacing: 14px; margin: 0; margin-bottom: 20px; }
+.cert-ribbon { background: #900078; color: white; padding: 8px 40px; font-size: 16px; letter-spacing: 6px; position: relative; margin-bottom: 30px; display: inline-block; }
+.cert-presented { font-size: 18px; color: #444; margin-bottom: 10px; }
+.cert-name { font-size: 52px; font-weight: 500; color: #281259; margin: 0; padding-bottom: 5px; border-bottom: 2px solid #281259; width: 70%; margin-bottom: 30px; }
+.cert-text { font-size: 16.5px; line-height: 1.8; color: #333; width: 90%; margin: 0 auto; text-align: center; }
+
+.cert-footer-content { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; padding: 0 40px; }
+.cert-signature { text-align: center; width: 200px; }
+.cert-signature-line { border-top: 1px solid #333; margin-bottom: 8px; margin-top: 8px; }
+.cert-signature h4 { margin: 0; font-size: 16px; letter-spacing: 4px; color: #281259; }
+.cert-signature p { margin: 0; font-size: 14px; color: #555; font-style: italic; }
+
+.cert-seal { display: flex; justify-content: center; align-items: center; }
+.cert-right-logos { display: flex; align-items: center; gap: 20px; }
+.cert-msme { height: 75px; object-fit: contain; }
+.cert-qr { width: 80px; height: 80px; object-fit: contain; }
+
+.cert-bottom-bar { display: flex; justify-content: center; align-items: center; gap: 15px; font-size: 12px; color: #555; font-weight: 500; }
+
+/* Responsive scaling for mobile viewing */
+@media (max-width: 1200px) {
+  .certificate-page {
+    padding: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .certificate-container {
+    /* Instead of scaling, let it be full size so user can pinch-zoom and scroll,
+       or scale it perfectly using vw */
+    transform: scale(calc(100vw / 1200));
+    transform-origin: top left;
+    margin-bottom: calc(-210mm * (1 - (100vw / 1200)));
+    margin-right: calc(-297mm * (1 - (100vw / 1200)));
+  }
+}
+@media (max-width: 768px) {
+  .certificate-container {
+    transform: scale(calc(100vw / 1200));
+    margin-bottom: calc(-210mm * (1 - (100vw / 1200)));
+    margin-right: calc(-297mm * (1 - (100vw / 1200)));
+  }
+}
+@media print {
+  body, .certificate-page { background: white; margin: 0; padding: 0; min-height: auto; display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .certificate-container { box-shadow: none; transform: scale(1) !important; margin: 0 !important; width: 297mm; height: 210mm; page-break-after: always; }
+  .no-print { display: none !important; }
+}

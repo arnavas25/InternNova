@@ -1,0 +1,13 @@
+.notfound-page {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px;
+  background: radial-gradient(ellipse 800px 500px at 50% 30%, var(--accent-tint), transparent 60%);
+}
+.notfound-card { max-width: 480px; text-align: center; padding: 48px 40px; }
+.notfound-seal {
+  width: 68px; height: 68px; border-radius: 50%; border: 1.5px dashed var(--err-500);
+  display: flex; align-items: center; justify-content: center; margin: 20px auto 14px; color: var(--err-500);
+}
+.notfound-code { display: block; font-size: 0.75rem; color: var(--text-faint); margin-bottom: 16px; }
+.notfound-card h1 { font-size: var(--step-3); margin-bottom: 12px; }
+.notfound-card p { margin-bottom: 28px; }
+.notfound-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }

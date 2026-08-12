@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "api/[...slug].js": {
+      "includeFiles": "server-routes/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/clear-password-flag", "destination": "/api/admin?action=clear-password-flag" },
+    { "source": "/api/approve-premium", "destination": "/api/admin?action=approve-premium" },
+    { "source": "/api/reject-premium", "destination": "/api/admin?action=reject-premium" },
+    { "source": "/api/send-credentials", "destination": "/api/admin?action=send-credentials" },
+    { "source": "/api/resend-credentials", "destination": "/api/admin?action=resend-credentials" },
+    { "source": "/api/export-credentials", "destination": "/api/admin?action=export-credentials" },
+    { "source": "/api/create-student", "destination": "/api/admin?action=create-student" },
+    { "source": "/api/create-staff", "destination": "/api/admin?action=create-staff" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
