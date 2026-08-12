@@ -1,74 +1,228 @@
 # InternNova
 
-InternNova is an internship and student-management platform designed to manage internship programs, student activities, tasks, resources, certificates, applications, payments, and staff operations from a centralized platform.
+**InternNova** is a modern internship and student-management platform built to simplify the way students, mentors, and administrators manage internship programs, learning activities, tasks, certificates, and career-related services.
 
-The current project includes a public website, student dashboard, staff/admin dashboard, internship management system, certificate workflows, payment integration, and a Resume Builder.
+The platform combines a public-facing website with dedicated **Student** and **Staff/Admin dashboards**, providing a centralized system for managing the complete internship journey.
 
-## Features
+---
 
-* **Public Website** — Company information, internship programs, batches, courses, projects, blogs, FAQs, Campus Ambassador program, Hall of Fame, Employer Portal, certificate verification, and legal pages.
-* **Student Dashboard** — Internship overview, assigned tasks, task submission, progress tracking, learning resources, schedules, notifications, profile management, certificates, leaderboard, and Resume Builder.
-* **Staff/Admin Dashboard** — Student and staff management, tasks, resources, task evaluation, premium applications, certificates, newsletter management, announcements, teams, and other administrative operations.
-* **Internship Management** — Internship applications, student enrollment, batches, premium applications, Campus Ambassador applications, task assignment, submissions, evaluations, and progress tracking.
-* **Certificate System** — Certificate management, verification, certificate orders, and payment workflows.
-* **Payment Integration** — Razorpay integration for supported course, certificate, premium, and Resume Builder payments.
-* **Resume Builder** — Resume creation and editing, resume data storage, AI-assisted generation, ATS-related scoring, paid plans, and secure resume access.
+## 🚀 About the Project
 
-## Tech Stack
+InternNova is designed around a simple goal:
 
-**Frontend:** React, Vite, React Router
-**Backend:** Vercel Serverless Functions
-**Database & Authentication:** Supabase
-**Payments:** Razorpay
-**AI:** Google Gemini
-**Email:** Nodemailer, EmailJS
-**Testing:** Playwright
-**Linting:** Oxlint
-**Deployment:** Vercel
+> **Make internship management easier for students, mentors, and organizations.**
 
-## Project Structure
+Instead of managing applications, tasks, resources, progress, certificates, and communication across multiple platforms, InternNova brings these workflows together in one system.
+
+The current platform includes internship management, student dashboards, administrative tools, certificate workflows, payment integration, and a Resume Builder.
+
+---
+
+## ✨ Key Features
+
+### 🎓 Student Dashboard
+
+Students get a dedicated dashboard where they can:
+
+* View internship information
+* Access assigned tasks
+* Submit completed tasks
+* Track task and internship progress
+* Access learning resources
+* View schedules
+* Manage their profile
+* Receive notifications
+* View certificates
+* Check leaderboard information
+* Access the Resume Builder
+
+### 👨‍💼 Staff & Admin Dashboard
+
+The administrative dashboard provides tools for managing the internship ecosystem:
+
+* Student management
+* Staff and mentor management
+* Task creation and management
+* Learning resources
+* Task evaluation
+* Student progress
+* Internship batches
+* Premium applications
+* Certificate management
+* Certificate orders
+* Announcements
+* Newsletter subscribers
+* Team management
+* Administrative operations
+
+### 💼 Internship Management
+
+The platform supports the complete internship workflow, including:
+
+* Internship applications
+* Student enrollment
+* Internship batches
+* Premium internship applications
+* Campus Ambassador applications
+* Task assignment
+* Task submission
+* Task evaluation
+* Progress tracking
+
+### 📜 Certificate System
+
+InternNova includes a dedicated certificate workflow for:
+
+* Certificate records
+* Certificate display
+* Certificate verification
+* Certificate orders
+* Certificate payments
+
+### 💳 Payment Integration
+
+Razorpay is integrated for supported platform services, including:
+
+* Course payments
+* Certificate payments
+* Premium services
+* Resume Builder plans
+
+Payment verification is handled through server-side APIs.
+
+### 📄 Resume Builder
+
+The platform also includes a Resume Builder designed to help students create and manage professional resumes.
+
+Current functionality includes:
+
+* Resume creation
+* Resume editing
+* Resume data storage
+* AI-assisted resume generation
+* ATS-related scoring
+* Resume plans
+* Secure resume access
+
+---
+
+## 🌐 Public Website
+
+The public-facing InternNova website includes:
+
+* Home
+* About
+* Internship Programs
+* Batches
+* Courses
+* Projects
+* Blog
+* FAQs
+* Campus Ambassador
+* Hall of Fame
+* Employer Portal
+* Certificate Verification
+* Newsletter
+* Terms & Conditions
+* Privacy Policy
+* Refund Policy
+* Cancellation Policy
+
+---
+
+## 🛠️ Technology Stack
+
+| Category       | Technology                  |
+| -------------- | --------------------------- |
+| Frontend       | React                       |
+| Build Tool     | Vite                        |
+| Routing        | React Router                |
+| Backend        | Vercel Serverless Functions |
+| Database       | Supabase                    |
+| Authentication | Supabase Auth               |
+| Payments       | Razorpay                    |
+| AI             | Google Gemini               |
+| Email          | Nodemailer / EmailJS        |
+| Testing        | Playwright                  |
+| Linting        | Oxlint                      |
+| Deployment     | Vercel                      |
+
+---
+
+## 📁 Project Structure
 
 ```text
 InternNova/
-├── api/                    # Vercel API routes
-├── public/                 # Public assets
-├── server-routes/          # Server-side application logic
-│   ├── _admin/             # Admin operations
-│   ├── payment/            # Payment APIs
-│   └── resume/             # Resume APIs
+│
+├── api/                       # Vercel API route handlers
+│
+├── public/                    # Public images, logos and static assets
+│
+├── server-routes/             # Server-side application logic
+│   ├── _admin/                # Admin operations
+│   ├── payment/               # Payment services
+│   └── resume/                # Resume services
+│
 ├── src/
-│   ├── components/         # Reusable UI components
-│   ├── lib/                # Shared utilities and Supabase
-│   ├── pages/              # Website, dashboard and admin pages
-│   └── styles/             # Global styles
-├── supabase_migrations/    # Database migrations
-├── tests/                  # Playwright tests
-├── .env.example
+│   ├── components/            # Reusable UI components
+│   ├── lib/                   # Shared utilities and Supabase client
+│   ├── pages/                 # Website, dashboard and admin pages
+│   └── styles/                # Application styles
+│
+├── supabase_migrations/       # Database migrations
+├── tests/                     # Playwright end-to-end tests
+│
+├── .env.example               # Environment variable template
+├── .gitignore
 ├── package.json
 ├── supabase_schema.sql
 ├── vercel.json
 └── vite.config.js
 ```
 
-## Getting Started
+---
 
-### Requirements
+## ⚙️ Getting Started
 
-* Node.js 20+
-* npm
-* Supabase project
-* Razorpay account for payment features
-* Vercel account for deployment
+### Prerequisites
+
+Make sure you have the following installed:
+
+* **Node.js 20+**
+* **npm**
+* A **Supabase** project
+* A **Razorpay** account if payment functionality is required
+* A **Vercel** account for deployment
 
 ### Installation
 
+Clone the repository:
+
 ```bash
 git clone https://github.com/arnavas25/InternNova.git
+```
+
+Navigate into the project:
+
+```bash
 cd InternNova
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
-Create a `.env.local` file using `.env.example` and add the required environment variables.
+### Environment Configuration
+
+Create a `.env.local` file using `.env.example` as a reference.
+
+Configure the required Supabase, Razorpay, email, and AI environment variables.
+
+> **Never commit `.env.local` or any file containing private credentials.**
+
+### Run Locally
 
 Start the development server:
 
@@ -76,70 +230,152 @@ Start the development server:
 npm run dev
 ```
 
-Build the project:
+The application will be available at the local URL provided by Vite.
+
+---
+
+## 🏗️ Build
+
+Create a production build:
 
 ```bash
 npm run build
 ```
 
-Run linting:
+Preview the production build:
 
 ```bash
-npm run lint
+npm run preview
 ```
 
-Run end-to-end tests:
+---
+
+## 🧪 Testing
+
+InternNova uses **Playwright** for end-to-end testing.
+
+Run the test suite with:
 
 ```bash
 npm run test:e2e
 ```
 
-## Environment Variables
+Automated tests should use dedicated development or staging accounts rather than real production accounts.
 
-Environment variables are documented in `.env.example`.
+---
 
-Private credentials such as Supabase service-role keys, Razorpay secret keys, email passwords, and AI API keys must never be committed to the repository.
+## 🗄️ Database
 
-## Supabase
+InternNova uses **Supabase** for authentication and application data.
 
-Supabase is used for authentication and application data.
+The main database schema is available in:
 
-The database schema is available in `supabase_schema.sql`, while migrations are stored in `supabase_migrations/`.
+```text
+supabase_schema.sql
+```
 
-For an existing database, apply:
+Database migrations are stored in:
+
+```text
+supabase_migrations/
+```
+
+The current Resume Builder uses a secure resume access-token system. For an existing database, apply:
 
 ```text
 supabase_migrations/20260812_add_resume_access_token.sql
 ```
 
-before using the current Resume Builder workflow.
-
-## Deployment
-
-The project is configured for Vercel. Configure the required environment variables in the Vercel project settings and deploy the repository.
-
-## Security
-
-InternNova handles student data, staff operations, authentication, payments, certificates, and resume information.
-
-The repository is configured to keep private credentials outside the source code and uses server-side payment verification and protected resume access.
-
-For production deployments:
-
-* Never commit `.env` or `.env.local`.
-* Never expose `SUPABASE_SERVICE_ROLE_KEY` to the client.
-* Keep payment secrets server-side.
-* Protect admin APIs with authentication and authorization.
-* Use dedicated accounts for automated testing.
-* Keep staging and production environments separate.
-* Configure Supabase Row Level Security (RLS) correctly.
-
-## Current Status
-
-InternNova is an actively developed platform focused on internship management, student dashboards, staff operations, certificates, payments, and career-related tools.
-
-The project will continue to evolve as new features and improvements are added.
+before using the updated Resume Builder workflow.
 
 ---
 
-**InternNova — Internship, Training & Career Platform**
+## 🔐 Security
+
+InternNova handles student information, staff operations, authentication, payments, certificates, and resume data.
+
+The project follows several important security practices:
+
+* Private credentials are stored through environment variables.
+* Supabase service-role credentials are kept server-side.
+* Payment verification is performed server-side.
+* Resume access is protected using secure access tokens.
+* Admin functionality is handled through server-side APIs.
+* Automated tests are designed to use dedicated test accounts.
+* Development/debug credentials are not stored in the repository.
+
+### Never commit
+
+```text
+.env
+.env.local
+.env.production
+```
+
+or any file containing:
+
+* Supabase service-role keys
+* Razorpay secret keys
+* Email passwords
+* Gemini/API keys
+* Other private credentials
+
+---
+
+## 🚀 Deployment
+
+InternNova is configured for **Vercel** deployment.
+
+Before deploying:
+
+1. Configure production environment variables in Vercel.
+2. Configure the Supabase production project.
+3. Verify Supabase RLS policies.
+4. Configure Razorpay production credentials.
+5. Apply required database migrations.
+6. Run a production build.
+7. Test authentication, payments, dashboards, and protected APIs.
+
+Build locally before deployment:
+
+```bash
+npm run build
+```
+
+---
+
+## 📌 Current Project Status
+
+InternNova is currently an actively developed internship and student-management platform.
+
+The current system focuses on:
+
+**Internship Management → Student Dashboard → Tasks & Resources → Staff/Admin Management → Certificates → Payments → Resume Builder**
+
+The platform is being continuously improved as new requirements and features are introduced.
+
+---
+
+## 🤝 Contributing
+
+This repository is currently maintained as the InternNova project.
+
+If external contributions are enabled in the future, contribution guidelines will be added here.
+
+---
+
+## 📄 License
+
+No open-source license has currently been selected for this project.
+
+---
+
+<div align="center">
+
+### InternNova
+
+**Internship • Training • Career**
+
+Built with ❤️ for students and organizations.
+
+</div>
